@@ -2,7 +2,7 @@
 """Сбор статистики профиля GitHub и генерация честных бейджей.
 
 Два бейджа в едином стиле shields.io endpoint badge:
-- stars.json      — «⭐ моих репозиториев»: сумма звёзд на всех публичных репозиториях (REST API)
+- stars.json      — «⭐ repositories»: сумма звёзд на всех публичных репозиториях (REST API)
 - contributions.json — «contributions (last year)»: контрибуции за скользящие 365 дней (GraphQL API)
 
 В отличие от сторонних виджетов (github-readme-stats и др.):
@@ -105,7 +105,7 @@ def main() -> None:
     contribs = fetch_contributions()
 
     STARS_FILE.write_text(
-        json.dumps(badge("⭐ моих репозиториев", str(stars), "brightgreen"), ensure_ascii=False, indent=2),
+        json.dumps(badge("⭐ repositories", str(stars), "brightgreen"), ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
     CONTRIB_FILE.write_text(
